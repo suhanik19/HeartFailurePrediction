@@ -1,8 +1,8 @@
 # Heart Failure Prediction
-Welcome to the Heart Disease Prediction Tool. This Python-based model is designed to predict heart disease by analyzing key health features. It trains multiple classification models to improve diagnostic accuracy, providing valuable insights for medical research and healthcare analytics.
+Welcome to the Heart Disease Prediction Tool. This Python-based model is designed to predict the occurrence of heart disease by analyzing key health features. It trains multiple classification models to improve diagnostic accuracy, providing valuable insights for medical research and healthcare analytics.
 
 ## Project Objective
-Heart disease remains one of the leading causes of mortality worldwide, making early detection and accurate diagnosis crucial for improving patient outcomes. With advancements in machine learning and data analytics, predictive models can significantly assist healthcare professionals by providing data-driven insights that aid in early diagnosis and personalized treatments. This project aims to address that need by leveraging a comprehensive heart disease dataset and applying classification models to predict the likelihood of heart disease.
+Heart disease is one of the major causes of death worldwide, making early detection and correct diagnosis critical to improve patient outcomes. Thanks to developments in machine learning and data analytics, predictive models can greatly help healthcare providers by offering data-driven insights that support early diagnosis and individualized therapies. This study intends to meet that demand by analyzing a large heart disease dataset and applying classification methods to predict whether or not heart disease will develop.
 
 ### Dataset and Features
 The dataset used in this project combines five existing heart disease datasets (Cleveland, Hungarian, Switzerland, Long Beach VA, and Stalog), resulting in 918 unique observations after removing any duplicate values. Each observation contains 11 key attributes that capture vital health information associated with heart disease:
@@ -17,24 +17,24 @@ The dataset used in this project combines five existing heart disease datasets (
 
 5. **Serum Cholesterol**: The cholesterol level [mg/dL]. 
 
-6. **Fasting Blood Sugar**: The patient's blood sugar after fasting (1: if FastingBS > 120 mg/dl, 0: otherwise).
+6. **Fasting Blood Sugar**: The patient's blood sugar after fasting (1: if Fasting blood sugar > 120 mg/dl, 0: otherwise).
 
-7. **Resting ECG**: Provides information about the patient’s heart at rest, including normal results, ST-T wave abnormalities, or showing left ventricular hypertrophy (LVH).
+7. **Resting ECG**: Provides information about the patient’s heart at rest (Normal, ST-T wave abnormalities, LVH( left ventricular hypertrophy)).
 
-8. **Maximum HR**: The maximum heart rate reached during a stress test (Numeric value between 60 and 202).
+8. **Maximum HR**: The maximum heart rate reached during a stress test (Numerical value between 60 and 202).
 
 9. **Exercise-Induced Angina**: Indicates whether the patient experienced angina (chest pain) during physical exertion (1 = yes, 0 = no).
 
 10. **Old Peak**: ST depression induced by exercise relative to rest (Numeric value measured in depression).
 
-11. **ST_Slope**: the slope of the peak exercise ST segment (Up: upsloping, Flat: flat, Down: downsloping).
+11. **ST_Slope**: The slope of the peak exercise ST segment (Up: upsloping, Flat: flat, Down: downsloping).
 
 12. **Target**: The target variable (0 = no heart disease, 1 = presence of heart disease) indicates whether the patient has heart disease.
 
 Every dataset used can be found under the Index of heart disease datasets from UCI Machine Learning Repository on the following link: [https://archive.ics.uci.edu/ml/machine-learning-databases/heart-disease/](https://archive.ics.uci.edu/dataset/45/heart+disease)
 
 ### Methods Used
-* **Data Preprocessing**: Handling missing values and duplicates, mapping categorical features to numerical values, scaling data with StandardScaler, and addressing class imbalance using Random OverSampling.
+* **Data Preprocessing**: Mapping categorical features to numerical values, scaling data with StandardScaler, and handling class imbalance using Random OverSampling.
 * **Exploratory Data Analysis (EDA)**: Visualizing feature distributions with histograms and analyzing correlations with a heatmap.
 * **Classification Models**: Used Logistic Regression, K-Nearest Neighbors (KNN), Decision Tree, Random Forest, Support Vector Machine (SVM), Gradient Boosting Machines (GBM)
 
@@ -45,12 +45,6 @@ Every dataset used can be found under the Index of heart disease datasets from U
 * **NumPy**
 * **Scikit-learn**: for machine learning models
 * **Imbalanced-learn**
-
-## Project Workflow Overview
-1. **Data Preprocessing**: The dataset is clean, reducing the need for extensive preprocessing. Categorical features are mapped to numerical values, data scaling is performed using StandardScaler, and class imbalance is addressed with Random OverSampling to ensure balanced model training.
-2. **Exploratory Data Analysis**: Visualizations are used to analyze feature distributions and relationships. Histograms are generated to compare the distributions of features across target classes, and a correlation heatmap is presented to highlight relationships between features, helping to identify any multicollinearity or key patterns.
-3. **Model Training**: Six different machine learning models are trained on the processed dataset.
-4. **Model Evaluation and Performance**: Each model is evaluated based on accuracy and classification metrics, with Random Forests and Gradient Boosting achieving the highest accuracy.
 
 ## Usage
 1. **Access the Colab Notebook**:
@@ -65,7 +59,7 @@ If the dataset isn't automatically loaded in the notebook, upload the data files
 Follow the steps outlined in the notebook to preprocess the data, train models, and evaluate their performance. Each section is clearly marked for easy navigation.
 
 ## Model Performance
-This project applied six different machine learning classification models to predict the likelihood of heart disease based on 11 key health features. Each model was trained on the processed dataset and evaluated using the test data.
+This project applies six different machine learning classification models to predict the occurrence of heart disease based on 11 key health features. Each model was trained on the processed dataset and evaluated using the test data.
 
 | Model | Accuracy |
 | --- | --- |
@@ -84,10 +78,10 @@ While the current models demonstrate promising results, there are several areas 
    * Conduct recursive feature elimination to remove the least important features based on model performance.
    * Conduct feature importance analysis to determine which features contribute most to the model’s predictions and refine the feature set.
 * **Cross Validation**:
-   * Split the data into k subsets and train the model k times, each time using a different subset as validation data and the remaining data as training data. This will ensure the models generalize well across different subsets of the data.
+   * Use k-means to divide the data into k parts and train the model k times. Each time, use one part for validation and the other k-1 parts for training. This helps the model perform well on different data subsets.
 * **Model Selection**:
    * Use stacking to combine multiple models to improve overall performance. The predictions of base models are used as input to a final model.
-   * Use voting classifier to aggregate predictions from multiple models to make a final decision based on majority voting or averaging.
+   * Use voting classifier to aggregate predictions from multiple models to make a final decision based on majority voting.
 
 ## Acknowledgements
 Creators:
