@@ -83,6 +83,10 @@ While the current models demonstrate promising results, there are several areas 
    * Use stacking to combine multiple models to improve overall performance. The predictions of base models are used as input to a final model.
    * Use voting classifier to aggregate predictions from multiple models to make a final decision based on majority voting.
 
+## Releases
+09/17/2024: First working release.
+12/13/2024: Utilized Recursive Feature Elimination to identify the most important features for model training, improving model interpretability and reducing overfitting by selecting a subset of relevant features.
+
 ## Acknowledgements
 Creators:
 
