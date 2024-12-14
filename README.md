@@ -85,6 +85,7 @@ While the current models demonstrate promising results, there are several areas 
 
 ## Releases
 09/17/2024: First working release.
+
 12/13/2024: Utilized Recursive Feature Elimination to identify the most important features for model training, improving model interpretability and reducing overfitting by selecting a subset of relevant features.
 
 ## Acknowledgements
