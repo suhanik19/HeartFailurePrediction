@@ -2,11 +2,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.neural_network import MLPClassifier
+from xgboost import XGBClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 
-def split_data(df, target_col="HeartDisease"):
+def split_data(df, target_col="DEATH_EVENT"):
     """Split dataset into train/test."""
     X = df.drop(columns=[target_col])
     y = df[target_col]
@@ -24,11 +24,12 @@ def train_random_forest(X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
-def train_neural_net(X_train, y_train, hidden_layer_sizes=(32, 16), max_iter=500, random_state=42):
-    """Train a simple feedforward neural network."""
-    model = MLPClassifier(hidden_layer_sizes=hidden_layer_sizes, activation="relu", solver="adam", max_iter=max_iter, random_state=random_state)
+
+def train_xgboost(X_train, y_train):
+    model = XGBClassifier(use_label_encoder=False, eval_metric="logloss", random_state=42)
     model.fit(X_train, y_train)
     return model
+
 
 def evaluate_model(model, X_test, y_test, name="Model"):
     """Prints accuracy and classification report."""
